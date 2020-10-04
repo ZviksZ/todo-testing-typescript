@@ -35,5 +35,17 @@ describe('<ImgContainer />', () => {
       expect(img).toHaveLength(2);
    });
 
+   it('should btn be clicked',  async () => {
+      const mockCallBack = jest.fn();
+      const { container } = render(<ImgContainer imgLink={defImg} callback={mockCallBack}/>);
+
+
+      expect(mockCallBack.mock.calls.length).toBe(0);
+
+      fireEvent.click(container.querySelector('button'))
+
+      expect(mockCallBack.mock.calls.length).toBe(1);
+   });
+
 
 })

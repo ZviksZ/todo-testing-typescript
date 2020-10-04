@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImgContainer /> hasn\`t got changes 1`] = `
+<div
+  className="container"
+>
+  <img
+    alt="./defImg.jpg"
+    src="./defImg.jpg"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Add img
+  </button>
+</div>
+`;

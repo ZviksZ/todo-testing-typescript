@@ -1,12 +1,22 @@
 import {cleanup, fireEvent, render} from "@testing-library/react";
 import * as React                   from 'react';
+import {shallow}                    from 'enzyme';
 import {Form}                       from "../components/Form";
 
 
 describe('Form testing', () => {
    afterEach(cleanup);
 
-   it('displays the correct greeting', () => {
+   it('correct change useState input value', () => {
+      const submitFn = jest.fn();
+      const form = shallow(<Form submitFn={submitFn}/>);
+      form.simulate('submit')
+
+      expect(submitFn).toHaveBeenCalledTimes(1)
+
+   });
+
+   it('correct change useState input value', () => {
       const {getByLabelText, getByTestId} = render(<Form/>);
       const input: HTMLInputElement = getByLabelText("user-name") as HTMLInputElement;
       const greeting = getByTestId("change-input-greeting");

@@ -1,11 +1,15 @@
 import * as React   from "react";
 import { useState } from "react";
 
-export const Form: React.FC = () => {
+interface Props {
+   submitFn?: (text: string) => void
+}
+
+export const Form: React.FC<Props> = ({submitFn}) => {
   const [input, setInput] = useState("");
 
   const submit = e => {
-
+     submitFn(input)
   }
 
   return (
@@ -22,6 +26,7 @@ export const Form: React.FC = () => {
         onChange={(e) => setInput(e.target.value)}
         value={input}
       />
+      <button type="submit">Send form</button>
     </form>
   );
 };
